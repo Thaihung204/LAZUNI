@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "userId": "1234",
+      "userName": "JohnDoe",
+      "password": "password123",
+      "role": "Individual",
+      "phoneNum": "1234567890",
+      "email": "johndoe@gmail.com",
+      "address": {
+        "street": "123 Main St",
+        "city": "Cityville",
+        "zipcode": "12345"
+      },
+      "balance": 100,
+      "profilePicture": "http://example.com/image.jpg",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "created_at": "2024-09-16"
+    },
+    {
+      "userId": "5678",
+      "userName": "BusinessCorp",
+      "password": "business123",
+      "role": "Business",
+      "phoneNum": "0987654321",
+      "email": "businesscorp@gmail.com",
+      "address": {
+        "street": "456 Business Ave",
+        "city": "Business City",
+        "zipcode": "67890"
+      },
+      "balance": 5000,
+      "profilePicture": "http://example.com/business-image.jpg",
+      "start_date": "2024-02-01",
+      "end_date": "2025-01-31",
+      "created_at": "2024-09-16"
+    },
+    {
+      "userId": "91011",
+      "userName": "AdminUser",
+      "password": "admin123",
+      "role": "Admin",
+      "phoneNum": "1122334455",
+      "email": "admin@gmail.com",
+      "address": {
+        "street": "789 Admin St",
+        "city": "Admin City",
+        "zipcode": "11223"
+      },
+      "balance": 0,
+      "profilePicture": "http://example.com/admin-image.jpg",
+      "start_date": "2024-03-01",
+      "end_date": "2025-02-28",
+      "created_at": "2024-09-16"
+    }
+  ]
+}
