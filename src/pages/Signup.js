@@ -22,17 +22,18 @@ export const Signup = () => {
             return;
         }
 
-        const signupData = { firstName, lastName, email, password };
+        const Data = { firstName, lastName, email, password };
 
-        const { otpData } = await SignupService(signupData, navigate);
+        const { otpData } = await SignupService(Data);
 
         if (otpData) {
 
-            sessionStorage.setItem('signupData', JSON.stringify(signupData));
+            sessionStorage.setItem('Data', JSON.stringify(Data));
+            localStorage.setItem('email',email)
             sessionStorage.setItem('otp', otpData);
 
 
-            navigate('/enterOtp');
+            navigate('/enterOtp', { state: { link: '/login' } });
         } else {
             setMess('Signup failed. Please try again.');
         }

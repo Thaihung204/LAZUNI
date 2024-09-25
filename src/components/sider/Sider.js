@@ -52,12 +52,12 @@ export const Sider = ({ activeSection, onToggleProfileInfo, onToggleChangePasswo
         </a>
       </div>
  
-      <div className='hover:bg-primary  hover:text-white p-4 font-medium'>
+      {/* <div className='hover:bg-primary  hover:text-white p-4 font-medium'>
         <a href="" className='flex items-center'>
           <div className='mr-[10px]'><CiHeart /></div>
           <h2>My Wishlists</h2>
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };

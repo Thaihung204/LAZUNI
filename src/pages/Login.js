@@ -14,6 +14,8 @@ export const Login = () => {
         try { 
             const user = await LoginServices(email, password);
             localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('email',user.email)
+          
             if(user){
                 navigate('/')
             }
@@ -63,7 +65,7 @@ export const Login = () => {
                                         <label className="text-[16px] font-normal text-primary  " for="persist">Remember Me</label>
                                     </div>
                                     <div className="">
-                                        <a href="#" className="block text-primary text-[14px] font-normal mb-1">Forgot password?</a>
+                                        <a href="/forgetPassword" className="block text-primary text-[14px] font-normal mb-1">Forgot password?</a>
 
                                     </div>
                                 </div>

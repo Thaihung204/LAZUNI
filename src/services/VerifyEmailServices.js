@@ -1,27 +1,43 @@
-
-
 import axios from 'axios';
 
 export const VerifyEmailServices = async (otpUser) => {
+    // Retrieve stored OTP, stored data, and email from sessionStorage and localStorage
     const storedOtp = sessionStorage.getItem('otp');
-    console.log(otpUser)
-    console.log(storedOtp)
-    const storedSignupData = JSON.parse(sessionStorage.getItem('signupData'));
-    console.log(storedSignupData)
+    const storedData = JSON.parse(sessionStorage.getItem('Data'));
+    let email = localStorage.getItem('email');
 
-    if (storedOtp ===otpUser) {
-        // If OTP matches, send the signup data to the backend
+    // Clean up the email if it has extra quotes
+    if (email) {
+        email = email.replace(/^"|"$/g, ''); // Remove extra quotes
+    }
+
+    // Log for debugging
+    console.log('OTP entered by user:', otpUser);
+    console.log('Stored OTP:', storedOtp);
+    console.log('Stored email:', email);
+    console.log('Stored Data:', storedData);
+
+    // Check if the email exists in localStorage and if OTP matches
+    if (email && storedOtp === otpUser) {
+        // If both conditions are met, return success and remove the OTP
+       
+        sessionStorage.removeItem('otp');
+      if (storedData) {
+        // If OTP doesn't match but we have storedData, make the POST request
         try {
-            const response = await axios.post('http://localhost:8080/client/verify', storedSignupData);
-
-            sessionStorage.removeItem('otp');
-            sessionStorage.removeItem('signupData')
-            return response.data;  // Handle the response as needed
+            const response = await axios.post('http://localhost:8080/client/verified', storedData);
+            sessionStorage.removeItem('Data'); // Remove OTP after posting
+            return response.data;  // Return the response from the POST request
         } catch (error) {
             console.error('Error verifying email:', error);
             throw new Error('Verification failed. Please try again.');
-        }
-    } else {
-        throw new Error('Invalid OTP. Please try again.');
+        }   
+
+       
+    } 
+
+    
+}else {
+        throw new Error('Invalid OTP or missing data. Please try again.');
     }
 };

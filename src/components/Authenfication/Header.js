@@ -110,6 +110,7 @@ export const Header = () => {
                                         >
                                             Log Out
                                         </button>
+                                        {/* <a>Blance: </a> */}
                                     </div>
                                 )}
                             </div>

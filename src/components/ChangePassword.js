@@ -35,12 +35,8 @@ export const ChangePassword = () => {
     }
 
     try {
-      
-      // Call the ChangePasswordServices with the current and new passwords
-      const response = await ChangePasswordServices.changePassword({
-        
-        newPassword,
-      });
+      // Call the ChangePasswordServices with the new password
+      const response = await ChangePasswordServices(newPassword);
 
       // Assuming response contains a success message or status
       setSuccess("Password changed successfully!");

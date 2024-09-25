@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-export const SignupService = async (signupData, navigate) => {  // Add navigate as a parameter
+export const SignupService = async (signupData) => {  
     try {
         const newUser = {
             firstName: signupData.firstName,
@@ -12,7 +12,7 @@ export const SignupService = async (signupData, navigate) => {  // Add navigate 
       
         // Make the signup request
         const response = await axios.post('http://localhost:8080/client/signup', newUser);
-        console.log('Signup Response:', response.data);
+       
         
 
         // Request OTP for the user based on the email
