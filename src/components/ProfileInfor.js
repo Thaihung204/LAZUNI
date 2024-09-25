@@ -87,6 +87,7 @@ export const ProfileInfor = () => {
         formData.append('email', email);
         if (selectedFile) {
             formData.append('profilePicture', selectedFile);
+            console.log(selectedFile)
         }
 
         try {
@@ -184,28 +185,14 @@ export const ProfileInfor = () => {
                                 />
                             </div>
                         </div>
-
-                        <div className='flex my-[15px]'>
-                            <div className=' w-full '>
-                                <InputField
-                                    title="Địa chỉ cụ thể"
-                                    type="text"
-                                    id="Address"
-                                    value={address}
-                                    onChange={(e) => setAddress(e.target.value)}
-                                    readOnly={!isEditMode}
-                                />
-                            </div>
-                        </div>
-
-                        <div className='flex flex-col md:flex-row my-[15px]'>
-                            <div className='mr-[20px] w-full md:w-1/2'>
+                        <div className='flex flex-col md:flex-row my-[5px]'>
+                            <div className='mr-[50px] w-full md:w-1/2'>
                                 <label className='text-[16px]  mb-2' htmlFor="city">Tỉnh Thành:</label>
                                 <select
                                     id="city"
                                     value={selectedCity}
                                     onChange={handleCityChange}
-                                    className={`form-control w-full p-[16px] border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditMode ? 'bg-gray-200 cursor-not-allowed' : 'bg-white'}`}
+                                    className={`form-control w-full p-[16px] border border-primary rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditMode ? 'bg-gray-200 cursor-not-allowed' : 'bg-white'}`}
                                     disabled={!isEditMode}
                                 >
                                     <option value="">Chọn Tỉnh Thành</option>
@@ -220,7 +207,7 @@ export const ProfileInfor = () => {
                                     id="district"
                                     value={selectedDistrict}
                                     onChange={handleDistrictChange}
-                                    className={`form-control w-full p-[16px] border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditMode || !selectedCity ? 'bg-gray-200 cursor-not-allowed' : 'bg-white'}`}
+                                    className={`form-control w-full p-[16px] border border-primary rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditMode || !selectedCity ? 'bg-gray-200 cursor-not-allowed' : 'bg-white'}`}
                                     disabled={!isEditMode || !selectedCity}
                                 >
                                     <option value="">Chọn Quận/Huyện</option>
@@ -230,8 +217,22 @@ export const ProfileInfor = () => {
                                 </select>
                             </div>
                         </div>
+                        <div className='flex my-[15px]'>
+                            <div className=' w-full '>
+                                <InputField
+                                    title="Địa chỉ cụ thể"
+                                    type="text"
+                                    id="Address"
+                                    value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
+                                    readOnly={!isEditMode}
+                                />
+                            </div>
+                        </div>
 
-                        <div className='h-[5px]'></div>
+                        
+
+                      
                     </div>
                 </div>
 
