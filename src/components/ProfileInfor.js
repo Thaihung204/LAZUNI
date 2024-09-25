@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { FaEdit } from "react-icons/fa";
 import { LuFileEdit } from "react-icons/lu";
+import axios from 'axios';
 import AvatarImage from '/PROJECT_SWP/SV_MARKET-FE/sv_market/src/assets/images/avatar-default.jpg';
-import { ChangeInformationService, ChangeInformationServices } from '../services/ChangeInformationServices'; // Import the service
+import { ChangeInformationService } from '../services/ChangeInformationServices';
 import { InputField } from '../components/Authenfication/InputField';
 import '../assets/css/style.css';
 
@@ -10,63 +11,87 @@ export const ProfileInfor = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [phoneNum, setPhoneNum] = useState('');
-    const [address, setAddress] = useState('');
+    const [address, setAddress] = useState(''); // Nhập địa chỉ nhà cụ thể
     const [email, setEmail] = useState('');
     const [user, setUser] = useState(null);
     const [image, setImage] = useState(AvatarImage);
-    const [selectedFile, setSelectedFile] = useState(null); // Store the selected file
-    const [isEditMode, setIsEditMode] = useState(false); // Add state to control edit mode
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [isEditMode, setIsEditMode] = useState(false);
+
+    const [cities, setCities] = useState([]);
+    const [districts, setDistricts] = useState([]);
+    const [selectedCity, setSelectedCity] = useState('');
+    const [selectedDistrict, setSelectedDistrict] = useState('');
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
             const parsedUser = JSON.parse(storedUser);
-
-            // Split userName into firstName and lastName based on spaces
             const nameParts = parsedUser.userName.split(' ');
-            const firstNameValue = nameParts[0];
-            const lastNameValue = nameParts.slice(1).join(' '); // Join the remaining parts as last name
-
             setUser(parsedUser);
             setImage(parsedUser.profilePicture || AvatarImage);
-            setFirstName(firstNameValue || '');
-            setLastName(lastNameValue || '');
+            setFirstName(nameParts[0] || '');
+            setLastName(nameParts.slice(1).join(' ') || '');
             setPhoneNum(parsedUser.phoneNum || '');
             setAddress(parsedUser.address || '');
             setEmail(parsedUser.email || '');
         }
+
+        // Fetch cities data on component mount
+        axios.get("https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json")
+            .then(response => {
+                setCities(response.data);
+            })
+            .catch(error => {
+                console.error("Error fetching cities:", error);
+            });
     }, []);
 
-    // Handle image change
+    // Handle city selection
+    const handleCityChange = (e) => {
+        const cityName = e.target.value;
+        setSelectedCity(cityName);
+
+        const selectedCityData = cities.find(city => city.Name === cityName);
+        if (selectedCityData) {
+            setDistricts(selectedCityData.Districts);
+        } else {
+            setDistricts([]);
+        }
+        setSelectedDistrict(''); // Reset district selection
+    };
+
+    const handleDistrictChange = (e) => {
+        setSelectedDistrict(e.target.value);
+    };
+
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
             setSelectedFile(file);
-            setImage(URL.createObjectURL(file)); // Preview the image
+            setImage(URL.createObjectURL(file));
         }
     };
 
-    // Trigger file input when image clicked
     const triggerFileInput = () => {
         document.getElementById('image-upload').click();
     };
 
-    // Handle profile update
     const updateProfile = async () => {
         const formData = new FormData();
         formData.append('firstName', firstName);
         formData.append('lastName', lastName);
         formData.append('phoneNum', phoneNum);
-        formData.append('address', address);
+        // Gộp địa chỉ thành phần địa chỉ hoàn chỉnh
+        formData.append('address', `${address}, ${selectedDistrict}, ${selectedCity}`);
         formData.append('email', email);
         if (selectedFile) {
-            formData.append('profilePicture', selectedFile); // Include the file if it was changed
+            formData.append('profilePicture', selectedFile);
         }
 
         try {
-            const response = await ChangeInformationService(formData); // Update user profile
+            const response = await ChangeInformationService(formData);
             console.log('Profile updated successfully', response);
-            // Optionally, refresh user data in localStorage if needed
         } catch (error) {
             console.error('Error updating profile:', error);
         }
@@ -113,69 +138,108 @@ export const ProfileInfor = () => {
                 </div>
 
                 <div className='mt-[20px]'>
-                    <div className='flex'>
-                        <div className='mr-[50px] w-1/2'>
-                            <InputField
-                                title="First Name"
-                                type="text"
-                                id="FirstName"
-                                value={firstName}
-                                onChange={(e) => setFirstName(e.target.value)}
-                                readOnly={!isEditMode} // Disable editing when not in edit mode
-                            />
+                    <div className='mt-[20px]'>
+                        <div className='flex'>
+                            <div className='mr-[50px] w-1/2'>
+                                <InputField
+                                    title="First Name"
+                                    type="text"
+                                    id="FirstName"
+                                    value={firstName}
+                                    onChange={(e) => setFirstName(e.target.value)}
+                                    readOnly={!isEditMode}
+                                />
+                            </div>
+                            <div className='w-1/2'>
+                                <InputField
+                                    title="Last Name"
+                                    type="text"
+                                    id="LastName"
+                                    value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)}
+                                    readOnly={!isEditMode}
+                                />
+                            </div>
                         </div>
-                        <div className='w-1/2'>
-                            <InputField
-                                title="Last Name"
-                                type="text"
-                                id="LastName"
-                                value={lastName}
-                                onChange={(e) => setLastName(e.target.value)}
-                                readOnly={!isEditMode} // Disable editing when not in edit mode
-                            />
-                        </div>
-                    </div>
 
-                    <div className='flex'>
-                        <div className='mr-[50px] w-1/2'>
-                            <InputField
-                                title="Phone Number"
-                                type="number"
-                                id="PhoneNum"
-                                value={phoneNum}
-                                onChange={(e) => setPhoneNum(e.target.value)}
-                                readOnly={!isEditMode} // Disable editing when not in edit mode
-                            />
+                        <div className='flex'>
+                            <div className='mr-[50px] w-1/2'>
+                                <InputField
+                                    title="Phone Number"
+                                    type="number"
+                                    id="PhoneNum"
+                                    value={phoneNum}
+                                    onChange={(e) => setPhoneNum(e.target.value)}
+                                    readOnly={!isEditMode}
+                                />
+                            </div>
+                            <div className='w-1/2'>
+                                <InputField
+                                    readOnly={true}
+                                    title="Email Address"
+                                    type="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </div>
                         </div>
-                        <div className='w-1/2'>
-                            <InputField
-                                readOnly={true} // Always read-only for email
-                                title="Email Address"
-                                type="email"
-                                id="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
+
+                        <div className='flex my-[15px]'>
+                            <div className=' w-full '>
+                                <InputField
+                                    title="Địa chỉ cụ thể"
+                                    type="text"
+                                    id="Address"
+                                    value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
+                                    readOnly={!isEditMode}
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className='flex'>
-                        <div className='w-full'>
-                            <InputField
-                                title="Address"
-                                type="text"
-                                id="Address"
-                                value={address}
-                                onChange={(e) => setAddress(e.target.value)}
-                                readOnly={!isEditMode} // Disable editing when not in edit mode
-                            />
+
+                        <div className='flex flex-col md:flex-row my-[15px]'>
+                            <div className='mr-[20px] w-full md:w-1/2'>
+                                <label className='text-[16px]  mb-2' htmlFor="city">Tỉnh Thành:</label>
+                                <select
+                                    id="city"
+                                    value={selectedCity}
+                                    onChange={handleCityChange}
+                                    className={`form-control w-full p-[16px] border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditMode ? 'bg-gray-200 cursor-not-allowed' : 'bg-white'}`}
+                                    disabled={!isEditMode}
+                                >
+                                    <option value="">Chọn Tỉnh Thành</option>
+                                    {cities.map((city) => (
+                                        <option key={city.Id} value={city.Name}>{city.Name}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className='w-full md:w-1/2'>
+                                <label className='text-[16px] mb-2' htmlFor="district">Quận Huyện:</label>
+                                <select
+                                    id="district"
+                                    value={selectedDistrict}
+                                    onChange={handleDistrictChange}
+                                    className={`form-control w-full p-[16px] border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditMode || !selectedCity ? 'bg-gray-200 cursor-not-allowed' : 'bg-white'}`}
+                                    disabled={!isEditMode || !selectedCity}
+                                >
+                                    <option value="">Chọn Quận/Huyện</option>
+                                    {districts.map((district) => (
+                                        <option key={district.Id} value={district.Name}>{district.Name}</option>
+                                    ))}
+                                </select>
+                            </div>
                         </div>
+
+                        <div className='h-[5px]'></div>
                     </div>
                 </div>
+
                 {isEditMode && (
-                    <div>
+                    <div >
                         <button
                             className='flex items-center bg-primary text-white p-4 rounded-lg w-[135px] mt-[15px]'
-                            onClick={updateProfile} // Call the new updateProfile function
+                            onClick={updateProfile}
                         >
                             <LuFileEdit />
                             <div className='ml-[10px]'>
