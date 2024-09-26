@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaExchangeAlt } from "react-icons/fa";
-import AvatarImage from '/PROJECT_SWP/SV_MARKET-FE/sv_market/src/assets/images/avatar-default.jpg';
+import AvatarImage from '/Users/mb/Desktop/Java/LAZUNI/src/assets/images/avatar-default.jpg';
 import ChangeAvatarServices from '../services/ChangeAvatarServices'; // Import the service
 import { FaEdit } from "react-icons/fa";
 import { LuFileEdit } from "react-icons/lu";

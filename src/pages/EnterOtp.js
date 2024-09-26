@@ -1,7 +1,7 @@
 import loginImage from '../assets/images/img_login.svg';
-import { TiArrowLeft } from "react-icons/ti";   
-import { HeaderAuth } from "../components/Authenfication/HeaderAuth";
-import { InputField } from "../components/Authenfication/InputField";
+import { TiArrowLeft } from "react-icons/ti";
+import { HeaderAuth } from "/Users/mb/Desktop/Java/LAZUNI/src/components/Authenfication/HeaderAuth.js";
+import { InputField } from "/Users/mb/Desktop/Java/LAZUNI/src/components/Authenfication/InputField.js";
 import React, { useState } from 'react';
 import { VerifyEmailServices } from '../services/VerifyEmailServices'; // Import the service
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +17,6 @@ export const EnterOtp = () => {
             const response = await VerifyEmailServices(otp);
             setMessage('Verification successful!'); // Handle successful verification
             console.log(response);
-            // Redirect or perform any additional actions if needed
             navigate('/login'); // Change to the desired route after success
         } catch (error) {
             setMessage(error.message); // Display error message
@@ -27,19 +26,18 @@ export const EnterOtp = () => {
     return (
         <>
             <div className="flex w-auto box-border">
-                <div className="w-[845px] h-[1024px]"><img src={loginImage} className="object-cover w-full" alt="Login" /></div>
+                <div className="w-[845px] h-[1024px]">
+                    <img src={loginImage} className="object-cover w-full" alt="Login" />
+                </div>
                 <div className="ml-[110px] mt-[311px] w-auto">
                     <div className='flex items-center' onClick={() => navigate(-1)}>
                         <TiArrowLeft />
                         <div className='text-[16px] font-normal text-primary ml-[5px]'>Back</div>
                     </div>
-                    <HeaderAuth
-                        title="Enter OTP"
-                        desc="We have shared a code to your registered email address."
-                    />
+                    <HeaderAuth title="Enter OTP" desc="We have shared a code to your registered email address." />
                     <div className="">
                         <form className="w-[445px]" onSubmit={handleVerify}>
-                            <div className="mb-1 flex flex-col ">
+                            <div className="mb-1 flex flex-col">
                                 <InputField
                                     title="OTP"
                                     type="text"
@@ -56,7 +54,7 @@ export const EnterOtp = () => {
                                 </button>
                             </div>
                         </form>
-                        {message && <p>{message}</p>}
+                        {message && <p className="mt-2 text-red-600">{message}</p>} {/* Display message */}
                     </div>
                 </div>
             </div>

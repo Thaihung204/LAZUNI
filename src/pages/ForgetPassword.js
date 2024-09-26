@@ -1,5 +1,5 @@
-import { HeaderAuth } from '../components/Authenfication/HeaderAuth';
-import { InputField } from '../components/Authenfication/InputField';
+import { HeaderAuth } from '/Users/mb/Desktop/Java/LAZUNI/src/components/Authenfication/HeaderAuth.js';
+import { InputField } from '/Users/mb/Desktop/Java/LAZUNI/src/components/Authenfication/InputField';
 import loginImage from '../assets/images/img_login.svg';
 import { TiArrowLeft } from "react-icons/ti";   
 import React, { useState } from 'react';  // Import useState

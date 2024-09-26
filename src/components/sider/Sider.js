@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CiUser, CiHeart } from "react-icons/ci";
 import { GrUpgrade } from "react-icons/gr";
 import { IoSettingsOutline } from "react-icons/io5";
-import AvatarImage from '/PROJECT_SWP/SV_MARKET-FE/sv_market/src/assets/images/avatar-default.jpg';
+import AvatarImage from '/Users/mb/Desktop/Java/LAZUNI/src/assets/images/avatar-default.jpg';
 
 export const Sider = ({ activeSection, onToggleProfileInfo, onToggleChangePassword }) => {
   const [user, setUser] = useState(null);
