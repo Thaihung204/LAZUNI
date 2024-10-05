@@ -1,5 +1,5 @@
-import logoImage from '/PROJECT_SWP/SV_MARKET-FE/sv_market/src/assets/images/logo.png';
-import AvatarImage from '/PROJECT_SWP/SV_MARKET-FE/sv_market/src/assets/images/avatar-default.jpg';
+import logoImage from '../../assets/images/img_login.svg';
+import AvatarImage from '../../assets/images/avatar-default.jpg';
 import React, { useEffect, useState } from 'react';
 import { IoCallOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";

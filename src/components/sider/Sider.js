@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { CiUser, CiHeart } from "react-icons/ci";
 import { GrUpgrade } from "react-icons/gr";
 import { IoSettingsOutline } from "react-icons/io5";
-import AvatarImage from '/PROJECT_SWP/SV_MARKET-FE/sv_market/src/assets/images/avatar-default.jpg';
+import { FaRegFileAlt } from "react-icons/fa";
+import AvatarImage from '../../assets/images/avatar-default.jpg';
 
-export const Sider = ({ activeSection, onToggleProfileInfo, onToggleChangePassword }) => {
+export const Sider = ({ activeSection, onToggleProfileInfo, onToggleChangePassword, onToggleUpgradeAccount,onToggleReport }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -16,7 +17,7 @@ export const Sider = ({ activeSection, onToggleProfileInfo, onToggleChangePasswo
 
   return (
     <div className="border border-b-2 items-center">
-      <a href="#" title="User Profile" className="flex ml-[30px] mr-[50px] my-[20px] space-x-2 items-center">
+      <a href="#" title="User Profile" className="flex ml-[30px] mr-[50px] my-[20px] space-x-2 items-center ">
         <img
           className="w-[50px] h-[50px] rounded-full object-cover"
           src={user?.profilePicture || AvatarImage}
@@ -45,15 +46,27 @@ export const Sider = ({ activeSection, onToggleProfileInfo, onToggleChangePasswo
         </a>
       </div>
 
-      <div className='hover:bg-primary hover:text-white p-4 font-medium'>
-        <a href="" className='flex items-center'>
+      <div 
+       className={`hover:bg-primary hover:text-white p-4 font-medium ${activeSection === 'upgradeAccount' ? 'bg-primary text-white' : ''}`} 
+       onClick={onToggleUpgradeAccount}
+      >
+        <a href="#" className='flex items-center'>
           <div className='mr-[10px]'><GrUpgrade /></div>
           <h2>Upgrade Account</h2>
         </a>
       </div>
- 
+      <div 
+       className={`hover:bg-primary hover:text-white p-4 font-medium ${activeSection === 'reportHistory' ? 'bg-primary text-white' : ''}`} 
+       onClick={onToggleReport}
+      >
+        <a href="#" className='flex items-center'>
+        <div className='mr-[10px]'><FaRegFileAlt /></div>
+          <h2>View Report History</h2>
+        </a>
+      </div>
+
       {/* <div className='hover:bg-primary  hover:text-white p-4 font-medium'>
-        <a href="" className='flex items-center'>
+        <a href="#" className='flex items-center'>
           <div className='mr-[10px]'><CiHeart /></div>
           <h2>My Wishlists</h2>
         </a>

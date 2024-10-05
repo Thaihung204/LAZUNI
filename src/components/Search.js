@@ -3,9 +3,9 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 export const Search = () => {
   return (
     <>
-      <form
+      <div  
         className="bg-primary rounded-[50px]  sticky top-[20px] left-[20px] z-[999] py-[15px] px-[30px] flex items-center"
-        onSubmit={(e) => e.preventDefault()}  // Prevent form submission for now
+        
       >
         <input
           type="text"
@@ -21,7 +21,7 @@ export const Search = () => {
         >
           <FaMagnifyingGlass />
         </button>
-      </form>
+      </div>
     </>
   );
 };

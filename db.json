@@ -1,97 +1,172 @@
 {
-  "users": [
+  "products": [
     {
-      "userId": "1234",
-      "userName": "JohnDoe",
-      "password": "password123",
-      "role": "Individual",
-      "phoneNum": "1234567890",
-      "email": "johndoe@gmail.com",
-      "adress": {
-        "street": "123 Main St",
-        "city": "Cityville",
-        "zipcode": "12345"
-      },
-      "balance": 100,
-      "profilePicture": "http://example.com/image.jpg",
-      "start_date": "2024-01-01",
-      "end_date": "2024-12-31",
-      "created_at": "2024-09-16",
-      "id": "b737"
+      "productId": "P001",
+      "productName": "iPhone 16 Pro",
+      "quantity": 15,
+      "price": 30000000,
+      "description": "Latest iPhone 16 Pro with advanced features.",
+      "categoryId": "C001",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     },
     {
-      "userId": "5678",
-      "userName": "BusinessCorp",
-      "password": "business123",
-      "role": "Business",
-      "phoneNum": "0987654321",
-      "email": "businesscorp@gmail.com",
-      "adress": {
-        "street": "456 Business Ave",
-        "city": "Business City",
-        "zipcode": "67890"
-      },
-      "balance": 5000,
-      "profilePicture": "http://example.com/business-image.jpg",
-      "start_date": "2024-02-01",
-      "end_date": "2025-01-31",
-      "created_at": "2024-09-16",
-      "id": "6bcc"
+      "productId": "P002",
+      "productName": "iPhone 16 Pro Max",
+      "quantity": 10,
+      "price": 35000000,
+      "description": "Bigger, better iPhone 16 Pro Max with enhanced performance.",
+      "categoryId": "C001",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     },
     {
-      "userId": "91011",
-      "userName": "AdminUser",
-      "password": "admin123",
-      "role": "Admin",
-      "phoneNum": "1122334455",
-      "email": "admin@gmail.com",
-      "adress": {
-        "street": "789 Admin St",
-        "city": "Admin City",
-        "zipcode": "11223"
-      },
-      "balance": 0,
-      "profilePicture": "http://example.com/admin-image.jpg",
-      "start_date": "2024-03-01",
-      "end_date": "2025-02-28",
-      "created_at": "2024-09-16",
-      "id": "ad2f"
+      "productId": "P003",
+      "productName": "MacBook Pro 2024",
+      "quantity": 8,
+      "price": 60000000,
+      "description": "New MacBook Pro with M2 chip and improved display.",
+      "categoryId": "C002",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     },
     {
-      "id": "68eb",
-      "userName": "abc 123",
-      "password": "admin123",
-      "email": "mannjsandasnd@gmail.com"
+      "productId": "P004",
+      "productName": "Apple Watch Series 9",
+      "quantity": 20,
+      "price": 12000000,
+      "description": "Latest Apple Watch with health tracking features.",
+      "categoryId": "C003",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     },
     {
-      "id": "b8d2",
-      "userName": "123 1231313",
-      "password": "admin123",
-      "email": "admin@gmail.com"
+      "productId": "P005",
+      "productName": "AirPods Pro 3",
+      "quantity": 30,
+      "price": 7000000,
+      "description": "Next-gen AirPods Pro with better sound and noise cancellation.",
+      "categoryId": "C004",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     },
     {
-      "id": "467b"
+      "productId": "P006",
+      "productName": "iPad Pro 2024",
+      "quantity": 12,
+      "price": 25000000,
+      "description": "New iPad Pro with powerful M2 chip.",
+      "categoryId": "C005",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     },
     {
-      "id": "c608"
+      "productId": "P007",
+      "productName": "Apple TV 4K",
+      "quantity": 18,
+      "price": 5000000,
+      "description": "Apple TV 4K with Dolby Vision and high-performance A15 chip.",
+      "categoryId": "C006",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     },
     {
-      "id": "fb45"
+      "productId": "P008",
+      "productName": "HomePod Mini",
+      "quantity": 25,
+      "price": 3000000,
+      "description": "Compact speaker delivering high-quality sound and Siri integration.",
+      "categoryId": "C007",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     },
     {
-      "id": "d81d"
+      "productId": "P009",
+      "productName": "AirTag",
+      "quantity": 40,
+      "price": 1000000,
+      "description": "Track your items with Apple's AirTag.",
+      "categoryId": "C008",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     },
     {
-      "id": "55eb"
+      "productId": "P010",
+      "productName": "Magic Keyboard",
+      "quantity": 35,
+      "price": 4000000,
+      "description": "Magic Keyboard for iPad Pro.",
+      "categoryId": "C009",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     },
     {
-      "id": "fb3a"
+      "productId": "P011",
+      "productName": "AirPods Max",
+      "quantity": 5,
+      "price": 12000000,
+      "description": "High-end over-ear headphones from Apple.",
+      "categoryId": "C004",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     },
     {
-      "id": "dc3f",
-      "userName": "11s1s1s asdasadd",
-      "password": "12213213123",
-      "email": "admin123123@gmail.com"
+      "productId": "P012",
+      "productName": "iMac 24-inch",
+      "quantity": 7,
+      "price": 25000000,
+      "description": "New iMac with M1 chip and vibrant colors.",
+      "categoryId": "C002",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg"
+      ]
     }
   ]
 }

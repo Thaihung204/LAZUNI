@@ -1,5 +1,5 @@
-import logoImage from '/PROJECT_SWP/SV_MARKET-FE/sv_market/src/assets/images/logo.png';
-import AvatarImage from '/PROJECT_SWP/SV_MARKET-FE/sv_market/src/assets/images/avatar-default.jpg';
+import logoImage from '../../assets/images/logo.png';
+import AvatarImage from '../../assets/images/avatar-default.jpg';
 import React, { useEffect, useState } from 'react';
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
@@ -8,23 +8,29 @@ import { RiProductHuntLine } from "react-icons/ri";
 import { FiShoppingBag } from "react-icons/fi";
 import { FaSearch } from "react-icons/fa";
 import { CiMenuBurger } from "react-icons/ci";
-export const Header = () => {
-    // const mockUser = {
-    //     userName: 'John Doe',
-    //     email: 'john.doe@example.com',
-    //     profilePicture: ''  // Use a placeholder image URL for testing
-    // };
-    // localStorage.setItem('user', JSON.stringify(mockUser));
-    // localStorage.removeItem('user')
+import { Link, useNavigate } from 'react-router-dom';
+import LogoutModal from '../Popup/LogoutModal';
+// Import modal component
 
+export const Header = () => {
+    const [keyWord, setKeyWord] = useState('');
     const [user, setUser] = useState(null);
-    const [showDropdown, setShowDropdown] = useState(false);    
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [showLogoutModal, setShowLogoutModal] = useState(false); // State để hiển thị modal
+
+    const navigate = useNavigate();
+
     const handleLogout = () => {
-      
-        localStorage.removeItem('user')
-        
-   
+        setShowLogoutModal(true); // Hiển thị modal khi người dùng nhấn đăng xuất
+    };
+
+    const confirmLogout = () => {
+        localStorage.removeItem('user');
         window.location.href = '/login';
+    };
+
+    const cancelLogout = () => {
+        setShowLogoutModal(false); // Đóng modal nếu người dùng nhấn hủy
     };
 
     // Check for user data in localStorage when the component mounts
@@ -35,9 +41,20 @@ export const Header = () => {
         }
     }, []);
 
+    // Handle search submission
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        if (keyWord) {
+            navigate(`/products?keyword=${keyWord}&page=1`);
+        }
+        else{
+            navigate(`/products?page=1`);
+        }
+    };
+
     return (
         <>
-            <header className="pb-6 bg-white lg:pb-0">
+            <header className="pb-6 bg-white lg:pb-0 ">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 flex justify-between items-center mt-[10px]">
                     {/* Logo */}
                     <div className="flex-shrink-0 mr-2">
@@ -50,7 +67,6 @@ export const Header = () => {
                     <div className="flex items-center">
                         <div><CiMenuBurger /></div>
                         <select className="px-4 py-2 rounded-md focus:outline-none focus:border-primary">
-
                             <option value="">Categories</option>
                             <option value="electronics">Electronics</option>
                             <option value="books">Books</option>
@@ -60,31 +76,34 @@ export const Header = () => {
                     </div>
 
                     {/* Search Bar with Icon */}
-                    <div className="search relative w-full max-w-md mx-4 mt-[5px]">
+                    <form className="search relative w-full max-w-md mx-4 mt-[5px]" onSubmit={handleSearchSubmit}>
                         <input
                             type="text"
                             placeholder="Search for products..."
                             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-primary"
+                            value={keyWord}
+                            onChange={(e) => setKeyWord(e.target.value)} // Update the keyword state
                         />
-                        <FaSearch className="absolute right-3 top-3 text-gray-500" />
-                    </div>
+                        <button type="submit">
+                            <FaSearch className="absolute right-3 top-3 text-gray-500" />
+                        </button>
+                    </form>
 
                     {/* Icons */}
                     <div className="flex h-auto items-center space-x-6">
-
-                        <a href="#">
+                        <Link to="#">
                             <IoChatboxEllipsesOutline size={24} className="hover:text-stone-600" />
-                        </a>
-                        <a href="#">
+                        </Link>
+                        <Link to="/Cart">
                             <IoCartOutline size={24} className="hover:text-stone-600" />
-                        </a>
-                        <a href="#">
+                        </Link>
+                        <Link to="#">
                             <FiShoppingBag size={24} className="hover:text-stone-600" />
-                        </a>
-                        <a href="#" className="flex items-center space-x-2">
+                        </Link>
+                        <Link to="#" className="flex items-center space-x-2">
                             <RiProductHuntLine size={24} className="hover:text-stone-600" />
                             <a className="text-base font-medium">Manage Products</a>
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Profile or Login */}
@@ -105,12 +124,11 @@ export const Header = () => {
                                     <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
                                         <a href="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">View Profile</a>
                                         <button
-                                            onClick={handleLogout}
+                                            onClick={handleLogout} // Mở modal khi nhấn nút
                                             className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                         >
                                             Log Out
                                         </button>
-                                        {/* <a>Blance: </a> */}
                                     </div>
                                 )}
                             </div>
@@ -126,6 +144,13 @@ export const Header = () => {
 
                 </div>
             </header>
+
+            {/* Hiển thị Modal Logout khi cần */}
+            <LogoutModal
+                isOpen={showLogoutModal} 
+                onClose={cancelLogout} 
+                onConfirm={confirmLogout} 
+            />
         </>
     );
 };

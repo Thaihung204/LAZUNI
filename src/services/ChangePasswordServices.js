@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// ChangePassword service similar in structure to LoginServices
-export const ChangePasswordServices = async (newPassword) => {
+// ChangePassword service
+export const ChangePasswordServices = async (currentPassword, newPassword) => {
   try {
     // Retrieve user email from localStorage
     let email = localStorage.getItem('email');
@@ -17,7 +17,8 @@ export const ChangePasswordServices = async (newPassword) => {
     // Prepare data to be sent to the server
     const data = {
       email: email, // The cleaned email
-      password: newPassword, // The new password
+      currentPassword: currentPassword, // The current password
+      newPassword: newPassword, // The new password
     };
 
     console.log('Data being sent:', data); // For debugging

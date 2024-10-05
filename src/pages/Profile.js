@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Footer } from "../components/Authenfication/Footer";
-import { Header } from "../components/Authenfication/Header";
+
 import { Sider } from '../components/sider/Sider';
-import { ProfileInfor } from '../components/ProfileInfor';
-import { ChangePassword } from '../components/ChangePassword';
+
+import { ChangePassword } from '../components/Profile/ChangePassword';
+import { ProfileInfor } from '../components/Profile/ProfileInfor';
+import { UpradeAccount } from '../components/Profile/UpradeAccount'; // Assuming "UpradeAccount" is the correct component name
+import { ReportHistory } from '../components/ReportHistory';
 
 export const Profile = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -16,27 +18,39 @@ export const Profile = () => {
     setActiveSection('changePassword');
   };
 
+  const handleToggleUpgradeAccount = () => {
+    setActiveSection('upgradeAccount');
+  };
+
+  const handleToggleReportHistory = () => { // Updated function name
+    setActiveSection('reportHistory');
+  };
+
   return (
     <>
-      <Header />
+
       <div className="container mx-auto my-[150px]">
         <div className="flex">
           <div className="w-auto">
             <Sider 
-              activeSection={activeSection} // Pass the active section
+              activeSection={activeSection} 
               onToggleProfileInfo={handleToggleProfileInfo} 
               onToggleChangePassword={handleToggleChangePassword} 
+              onToggleUpgradeAccount={handleToggleUpgradeAccount} 
+              onToggleReport={handleToggleReportHistory} // Updated prop name
             />
           </div>
           <div className="flex-1 ml-[20px]">
             <main className="mb-[120px]">
               {activeSection === 'profileInfo' && <ProfileInfor />}
-              {activeSection === 'changePassword' && <ChangePassword/>} {/* Render ChangePassword */}
+              {activeSection === 'changePassword' && <ChangePassword />} 
+              {activeSection === 'upgradeAccount' && <UpradeAccount />} 
+              {activeSection === 'reportHistory' && <ReportHistory />} {/* Updated section */}
             </main>
           </div>
         </div>
       </div>
-      <Footer />
+ 
     </>
   );
 };

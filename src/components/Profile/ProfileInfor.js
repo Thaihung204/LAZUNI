@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { FaEdit } from "react-icons/fa";
 import { LuFileEdit } from "react-icons/lu";
 import axios from 'axios';
-import AvatarImage from '/PROJECT_SWP/SV_MARKET-FE/sv_market/src/assets/images/avatar-default.jpg';
-import { ChangeInformationService } from '../services/ChangeInformationServices';
-import { InputField } from '../components/Authenfication/InputField';
-import '../assets/css/style.css';
+
+import AvatarImage from '../../assets/images/avatar-default.jpg';
+
+import { ChangeInformationService } from '../../services/ChangeInformationServices';
+import { InputField } from '../Authenfication/InputField';
+import '../../assets/css/style.css';
 
 export const ProfileInfor = () => {
     const [firstName, setFirstName] = useState('');
@@ -33,10 +35,16 @@ export const ProfileInfor = () => {
             setFirstName(nameParts[0] || '');
             setLastName(nameParts.slice(1).join(' ') || '');
             setPhoneNum(parsedUser.phoneNum || '');
-            setAddress(parsedUser.address || '');
             setEmail(parsedUser.email || '');
+    
+            // Split address into specific address, district, and city
+            const addressParts = parsedUser.address ? parsedUser.address.split(',') : [];
+            setAddress(addressParts[0]?.trim() || ''); // Địa chỉ cụ thể
+            setSelectedCity(addressParts[2]?.trim() || ''); // Thành phố
+        
+            setSelectedDistrict(addressParts[1]?.trim() || ''); // Quận huyện
         }
-
+    
         // Fetch cities data on component mount
         axios.get("https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json")
             .then(response => {
@@ -46,19 +54,20 @@ export const ProfileInfor = () => {
                 console.error("Error fetching cities:", error);
             });
     }, []);
+    
 
     // Handle city selection
     const handleCityChange = (e) => {
         const cityName = e.target.value;
         setSelectedCity(cityName);
-
+    
         const selectedCityData = cities.find(city => city.Name === cityName);
         if (selectedCityData) {
             setDistricts(selectedCityData.Districts);
         } else {
             setDistricts([]);
         }
-        setSelectedDistrict(''); // Reset district selection
+        setSelectedDistrict(''); // Reset district sel  ection
     };
 
     const handleDistrictChange = (e) => {
@@ -78,18 +87,19 @@ export const ProfileInfor = () => {
     };
 
     const updateProfile = async () => {
-        const formData = new FormData();
-        formData.append('firstName', firstName);
-        formData.append('lastName', lastName);
+        const formData = new FormData();  // Initialize formData here
+        formData.append('username', firstName + " " + lastName);
         formData.append('phoneNum', phoneNum);
-        // Gộp địa chỉ thành phần địa chỉ hoàn chỉnh
         formData.append('address', `${address}, ${selectedDistrict}, ${selectedCity}`);
         formData.append('email', email);
         if (selectedFile) {
-            formData.append('profilePicture', selectedFile);
-            console.log(selectedFile)
+            formData.append('avatar', selectedFile);
+            
         }
-
+        else{
+            formData.append('avatar', AvatarImage);
+        }
+    
         try {
             const response = await ChangeInformationService(formData);
             console.log('Profile updated successfully', response);
@@ -97,6 +107,8 @@ export const ProfileInfor = () => {
             console.error('Error updating profile:', error);
         }
     };
+  
+    
 
     return (
         <>
