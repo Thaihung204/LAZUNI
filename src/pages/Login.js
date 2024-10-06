@@ -15,10 +15,14 @@ export const Login = () => {
         try {
             const user = await LoginServices(email, password);
             localStorage.setItem('user', JSON.stringify(user));
-            if (user) {
-                navigate('/');
-            } else {
-                alert('Invalid email or password. Please try again.');
+            localStorage.setItem('email',user.email)
+          
+            if(user){
+                navigate('/')
+            }
+            else{
+                alert('Invalid email or password. Please try again.')
+
             }
         } catch (err) {
             alert('Invalid email or password. Please try again.');
@@ -64,10 +68,9 @@ export const Login = () => {
                                             Remember Me
                                         </label>
                                     </div>
-                                    <div>
-                                        <a href="#" className="block text-primary text-[14px] font-normal mb-1">
-                                            Forgot password?
-                                        </a>
+                                    <div className="">
+                                        <a href="/forgetPassword" className="block text-primary text-[14px] font-normal mb-1">Forgot password?</a>
+
                                     </div>
                                 </div>
                                 <button className="mb-[20px] w-full p-[20px] border border-primary bg-primary text-white rounded-lg">

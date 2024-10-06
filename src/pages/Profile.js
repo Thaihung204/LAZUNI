@@ -14,31 +14,43 @@ export const Profile = () => {
         setActiveSection('profileInfo');
     };
 
-    const handleToggleChangePassword = () => {
-        setActiveSection('changePassword');
-    };
+  const handleToggleChangePassword = () => {
+    setActiveSection('changePassword');
+  };
 
-    return (
-        <>
-            <Header />
-            <div className="container mx-auto my-[150px]">
-                <div className="flex">
-                    <div className="w-auto">
-                        <Sider 
-                            activeSection={activeSection} // Pass the active section
-                            onToggleProfileInfo={handleToggleProfileInfo}
-                            onToggleChangePassword={handleToggleChangePassword}
-                        />
-                    </div>
-                    <div className="flex-1 ml-[20px]">
-                        <main className="mb-[120px]">
-                            {activeSection === 'profileInfo' && <ProfileInfor/>}
-                            {activeSection === 'changePassword' && <ChangePassword/>} {/* Render ChangePassword */}
-                        </main>
-                    </div>
-                </div>
-            </div>
-            <Footer />
-        </>
-    );
+  const handleToggleUpgradeAccount = () => {
+    setActiveSection('upgradeAccount');
+  };
+
+  const handleToggleReportHistory = () => { // Updated function name
+    setActiveSection('reportHistory');
+  };
+
+  return (
+    <>
+
+      <div className="container mx-auto my-[150px]">
+        <div className="flex">
+          <div className="w-auto">
+            <Sider 
+              activeSection={activeSection} 
+              onToggleProfileInfo={handleToggleProfileInfo} 
+              onToggleChangePassword={handleToggleChangePassword} 
+              onToggleUpgradeAccount={handleToggleUpgradeAccount} 
+              onToggleReport={handleToggleReportHistory} // Updated prop name
+            />
+          </div>
+          <div className="flex-1 ml-[20px]">
+            <main className="mb-[120px]">
+              {activeSection === 'profileInfo' && <ProfileInfor />}
+              {activeSection === 'changePassword' && <ChangePassword />} 
+              {activeSection === 'upgradeAccount' && <UpradeAccount />} 
+              {activeSection === 'reportHistory' && <ReportHistory />} {/* Updated section */}
+            </main>
+          </div>
+        </div>
+      </div>
+ 
+    </>
+  );
 };

@@ -1,5 +1,5 @@
-import logoImage from '/Users/mb/Desktop/Java/LAZUNI/src/assets/images/logo.png';
-import AvatarImage from '/Users/mb/Desktop/Java/LAZUNI/src/assets/images/avatar-default.jpg';
+import logoImage from '/PROJECT_SWP/SV_MARKET-FE/sv_market/src/assets/images/logo.png';
+import AvatarImage from '/PROJECT_SWP/SV_MARKET-FE/sv_market/src/assets/images/avatar-default.jpg';
 import React, { useEffect, useState } from 'react';
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
@@ -37,7 +37,7 @@ export const Header = () => {
 
     return (
         <>
-            <header className="pb-6 bg-white lg:pb-0" style={{ backgroundColor: '#FFA600' }}>
+            <header className="pb-6 bg-white lg:pb-0">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 flex justify-between items-center mt-[10px]">
                     {/* Logo */}
                     <div className="flex-shrink-0 mr-2">
@@ -47,7 +47,7 @@ export const Header = () => {
                     </div>
 
                     {/* Category Dropdown */}
-                    <div className="flex items-center"  >
+                    <div className="flex items-center">
                         <div><CiMenuBurger /></div>
                         <select className="px-4 py-2 rounded-md focus:outline-none focus:border-primary">
 

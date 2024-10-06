@@ -1,25 +1,25 @@
-
 import axios from 'axios';
 
 export const LoginServices = async (email, password) => {
     try {
-        // Fetch users data using a GET request
-        const response = await axios.get('http://localhost:8080/users');
-        
-        const users = response.data;  // Assuming this is an array
-       
-        console.log('Users fetched:', users);  
-        const user = users.find((user) => user.email === email && user.password === password);
+        // Create the login payload
+        const data = { email:email, password:password };
+        console.log(data    )
 
-        if (user) {
-            console.log('Login successful:', user);
-            return user;
+        // Send a POST request to the login endpoint
+        const response = await axios.post('http://localhost:8080/login', data);
+
+        // Check if the login is successful
+        if (response.data) {
+            console.log('Login successful:', response.data);
+            return response.data;
         } else {
-            console.log('Login failed: User not found');
+            console.log('Login failed: No user data returned');
             return null;
         }
     } catch (error) {
-        console.error('Login failed:', error);
+        // Log error details for easier debugging
+        console.error('Login failed due to error:', error.response ? error.response.data : error.message);
         throw error;
     }
 };

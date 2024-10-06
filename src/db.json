@@ -1,58 +1,184 @@
 {
-  "users": [
+  "products": [
     {
-      "userId": "1234",
-      "userName": "JohnDoe",
-      "password": "password123",
-      "role": "Individual",
-      "phoneNum": "1234567890",
-      "email": "johndoe@gmail.com",
-      "address": {
-        "street": "123 Main St",
-        "city": "Cityville",
-        "zipcode": "12345"
-      },
-      "balance": 100,
-      "profilePicture": "http://example.com/image.jpg",
-      "start_date": "2024-01-01",
-      "end_date": "2024-12-31",
-      "created_at": "2024-09-16"
+      "productId": "P001",
+      "productName": "iPhone 16 Pro",
+      "quantity": 15,
+      "price": 30000000,
+      "description": "The iPhone 16 Pro is the pinnacle of smartphone technology, offering a breathtaking 6.1-inch OLED display with a resolution that delivers stunning color accuracy and contrast. Equipped with the new A16 Bionic chip, this phone offers exceptional performance for both multitasking and gaming. The triple-lens camera system provides superior low-light photography, enhanced optical zoom, and 8K video recording. Additionally, the iPhone 16 Pro is built with a ceramic shield for added durability and supports 5G for ultra-fast downloads and seamless streaming. It also includes MagSafe technology for faster wireless charging and a wide array of accessories.",
+      "categoryId": "C001",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
     },
     {
-      "userId": "5678",
-      "userName": "BusinessCorp",
-      "password": "business123",
-      "role": "Business",
-      "phoneNum": "0987654321",
-      "email": "businesscorp@gmail.com",
-      "address": {
-        "street": "456 Business Ave",
-        "city": "Business City",
-        "zipcode": "67890"
-      },
-      "balance": 5000,
-      "profilePicture": "http://example.com/business-image.jpg",
-      "start_date": "2024-02-01",
-      "end_date": "2025-01-31",
-      "created_at": "2024-09-16"
+      "productId": "P002",
+      "productName": "iPhone 16 Pro Max",
+      "quantity": 10,
+      "price": 35000000,
+      "description": "The iPhone 16 Pro Max features a massive 6.7-inch Super Retina XDR display, perfect for streaming, gaming, and creating content. The A16 Bionic chip is optimized for machine learning, making it perfect for AI tasks and advanced photography features. The triple-lens camera setup includes a 48MP wide lens, which allows for stunning detail even in low-light conditions, and 8K video recording lets you capture professional-grade video. The larger battery in the iPhone 16 Pro Max ensures all-day power, and with 5G support, you'll enjoy ultra-fast speeds whether downloading large files or streaming media.",
+      "categoryId": "C001",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
     },
     {
-      "userId": "91011",
-      "userName": "AdminUser",
-      "password": "admin123",
-      "role": "Admin",
-      "phoneNum": "1122334455",
-      "email": "admin@gmail.com",
-      "address": {
-        "street": "789 Admin St",
-        "city": "Admin City",
-        "zipcode": "11223"
-      },
-      "balance": 0,
-      "profilePicture": "http://example.com/admin-image.jpg",
-      "start_date": "2024-03-01",
-      "end_date": "2025-02-28",
-      "created_at": "2024-09-16"
+      "productId": "P003",
+      "productName": "MacBook Pro 2024",
+      "quantity": 8,
+      "price": 60000000,
+      "description": "The 2024 MacBook Pro features the powerful M2 chip, bringing faster performance and more efficiency than ever before. With a 14-inch Liquid Retina XDR display, the MacBook Pro offers incredible brightness and contrast, making it perfect for creative professionals. The device includes up to 64GB of unified memory, ensuring smooth multitasking even with the most demanding applications. This model also boasts an advanced thermal system for sustained performance and a long battery life that can last up to 17 hours. Additional features include Thunderbolt 4 ports for fast data transfer and support for multiple external displays.",
+      "categoryId": "C002",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
+    },
+    {
+      "productId": "P004",
+      "productName": "Apple Watch Series 9",
+      "quantity": 20,
+      "price": 12000000,
+      "description": "The Apple Watch Series 9 combines fitness and health tracking with communication and entertainment, offering advanced features such as blood oxygen monitoring, ECG, and a faster processor for quicker app performance. With a sleek, customizable design and a wide range of bands to choose from, the Series 9 is perfect for both everyday wear and intense workouts. It features Always-On Retina Display, GPS tracking, and water resistance up to 50 meters, making it an ideal companion for all kinds of activities. The battery lasts up to 18 hours, ensuring you stay connected and healthy throughout the day.",
+      "categoryId": "C003",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
+    },
+    {
+      "productId": "P005",
+      "productName": "AirPods Pro 3",
+      "quantity": 30,
+      "price": 7000000,
+      "description": "The AirPods Pro 3 offer the ultimate in wireless audio technology, featuring active noise cancellation that blocks out unwanted sounds and a Transparency Mode for hearing the world around you. With spatial audio and dynamic head tracking, the AirPods Pro 3 delivers a theater-like sound experience, perfect for watching movies or listening to music. The new H2 chip ensures faster pairing, better sound quality, and longer battery life, while the wireless charging case provides up to 30 hours of listening time. These earbuds are also water and sweat-resistant, making them perfect for workouts and outdoor activities.",
+      "categoryId": "C004",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
+    },
+    {
+      "productId": "P006",
+      "productName": "iPad Pro 2024",
+      "quantity": 12,
+      "price": 25000000,
+      "description": "The iPad Pro 2024 features the groundbreaking M2 chip, delivering a significant performance boost compared to previous models. The 12.9-inch Liquid Retina XDR display offers industry-leading color accuracy, making it perfect for creatives and professionals who need high-quality visuals. With 5G capabilities, this iPad allows for lightning-fast internet speeds, whether you're streaming, gaming, or video conferencing. It also includes Face ID, advanced cameras for pro-level photography and videography, and support for Apple Pencil 2, which enhances productivity and creativity. The iPad Pro’s battery lasts up to 10 hours, giving you a full day of work or play.",
+      "categoryId": "C005",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
+    },
+    {
+      "productId": "P007",
+      "productName": "Apple TV 4K",
+      "quantity": 25,
+      "price": 5000000,
+      "description": "The Apple TV 4K delivers stunning 4K HDR visuals with Dolby Atmos sound, offering a true cinematic experience in the comfort of your home. The A15 Bionic chip ensures smooth navigation, gaming, and streaming, with support for popular services like Netflix, Disney+, and Apple TV+. With its compact design, the device easily integrates into any home entertainment setup. The Siri Remote, with its intuitive touchpad, lets you control everything with voice commands, making it easier than ever to find what you want to watch. You can also use the Apple TV 4K as a hub for smart home devices.",
+      "categoryId": "C006",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
+    },
+    {
+      "productId": "P008",
+      "productName": "HomePod Mini",
+      "quantity": 18,
+      "price": 4000000,
+      "description": "The HomePod Mini packs big sound into a small package. Featuring 360-degree audio, it fills any room with rich, clear sound. The HomePod Mini is powered by the S6 chip, providing seamless integration with Siri for voice-controlled smart home capabilities. Whether you're playing music, setting reminders, or controlling smart home devices, the HomePod Mini makes it easy and convenient. It also supports stereo pairing and multi-room audio, allowing you to create a connected home audio system. Available in a variety of colors, it's the perfect addition to any room in your house.",
+      "categoryId": "C007",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
+    },
+    {
+      "productId": "P009",
+      "productName": "Magic Keyboard for iPad Pro",
+      "quantity": 15,
+      "price": 8000000,
+      "description": "The Magic Keyboard for iPad Pro provides the ultimate typing experience with a floating design that allows for smooth angle adjustments. It includes a built-in trackpad that works seamlessly with iPadOS, turning your iPad Pro into a productivity powerhouse. The backlit keys make it easy to type in any lighting condition, and the magnetic attachment keeps your iPad Pro securely in place. It also features a USB-C port for pass-through charging, making it even more convenient to use. Perfect for those who need to get serious work done while enjoying the portability of an iPad.",
+      "categoryId": "C008",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
+    },
+    {
+      "productId": "P010",
+      "productName": "Apple Pencil 2",
+      "quantity": 20,
+      "price": 4000000,
+      "description": "The Apple Pencil 2 takes creativity and productivity to the next level. Designed specifically for the iPad Pro and iPad Air, the Apple Pencil 2 delivers pixel-perfect precision and industry-leading low latency. Whether you're sketching, drawing, note-taking, or marking up documents, it provides a smooth and responsive experience. It magnetically attaches to the side of your iPad for automatic pairing and charging, and features a double-tap function that lets you switch between tools without interrupting your workflow. Ideal for artists, students, and professionals alike, the Apple Pencil 2 makes digital creativity more intuitive than ever.",
+      "categoryId": "C009",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
+    },
+    {
+      "productId": "P011",
+      "productName": "MagSafe Charger",
+      "quantity": 25,
+      "price": 1500000,
+      "description": "The MagSafe Charger provides a fast and efficient way to wirelessly charge your iPhone or AirPods. Its perfectly aligned magnets attach securely to your device, ensuring maximum charging efficiency. The charger supports up to 15W of power for faster wireless charging and is compatible with a wide range of Apple devices, including the iPhone 16 Pro and Pro Max, as well as older models. With its sleek and compact design, the MagSafe Charger is perfect for use at home, in the office, or on the go. It also works with MagSafe-compatible cases for added convenience.",
+      "categoryId": "C010",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
+    },
+    {
+      "productId": "P012",
+      "productName": "iMac 2024",
+      "quantity": 6,
+      "price": 45000000,
+      "description": "The 2024 iMac features a stunning 24-inch 4.5K Retina display with over a billion colors, making it perfect for creative professionals and anyone who needs a high-performance desktop. Powered by the M2 chip, it delivers faster processing and graphics performance, ensuring that it can handle even the most demanding tasks with ease. The ultra-thin design includes multiple USB-C ports, and the device comes in a variety of vibrant colors. It also includes a 1080p FaceTime HD camera, studio-quality microphones, and a six-speaker sound system, making it the ideal computer for both work and entertainment.",
+      "categoryId": "C011",
+      "state": "Available",
+      "imgList": [
+        "https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.news_app_ed.jpg",
+        "https://m-cdn.phonearena.com/images/hub/372-wide-two_1200/Apple-iPhone-16-release-date-price-and-features.jpg",
+        "https://static.kinhtedothi.vn/images/upload//2024/04/24/iphone-16-side-2-feature.jpeg",
+        "https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-110924-060849.jpg"
+      ]
     }
   ]
 }

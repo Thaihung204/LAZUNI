@@ -1,5 +1,5 @@
 export const InputField = (props) => {
-    const { title, type, id, content, value, onChange } = props;
+    const { title, type, id, content, value, onChange,readOnly } = props;
 
     return (
         <div className="mb-[18px] ">
@@ -12,6 +12,7 @@ export const InputField = (props) => {
                 placeholder={content}
                 value={value} 
                 onChange={onChange} 
+                readOnly={readOnly}
                 className="h-[56px] w-full p-[16px] text-[16px] border border-primary rounded-lg "
             />
         </div>
